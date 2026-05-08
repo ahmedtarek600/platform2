@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إنشاء حساب | المنصة الذكية لكلية العلوم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/register.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="auth-wrap">
+    <section class="auth-card">
+
+      <!-- LEFT: FORM -->
+      <div class="auth-left">
+        <div class="header">
+          <h1>إنشاء حساب</h1>
+          <p>أدخل بياناتك لإنشاء حساب جديد على المنصة</p>
+        </div>
+
+        <form class="form" id="registerForm" novalidate>
+
+          <div class="field">
+            <label for="fullName">الاسم الكامل</label>
+            <div class="input-wrap">
+              <input id="fullName" name="name" type="text"
+                placeholder="أدخل اسمك الكامل"
+                autocomplete="name" required />
+            </div>
+            <small class="error" id="nameError">من فضلك اكتب اسمك الكامل</small>
+          </div>
+
+          <div class="field">
+            <label for="uniCode">الكود الجامعي</label>
+            <div class="input-wrap">
+              <input id="uniCode" name="code" type="text"
+                placeholder="أدخل الكود الجامعي الخاص بك"
+                autocomplete="off" required />
+            </div>
+            <small class="hint">استخدم الكود الجامعي الرسمي الخاص بك</small>
+            <small class="error" id="codeError">من فضلك اكتب الكود الجامعي</small>
+          </div>
+
+          <div class="field">
+            <label for="grade">الفرقة</label>
+            <div class="input-wrap">
+              <select id="grade" name="grade" required>
+                <option value="" disabled selected>اختر فرقتك الدراسية</option>
+                <option value="1">الفرقة الأولى</option>
+                <option value="2">الفرقة الثانية</option>
+                <option value="3">الفرقة الثالثة</option>
+                <option value="4">الفرقة الرابعة</option>
+              </select>
+            </div>
+            <small class="error" id="gradeError">من فضلك اختر الفرقة</small>
+          </div>
+
+          <div class="field">
+            <label for="password">كلمة المرور</label>
+            <div class="input-wrap">
+              <input id="password" name="password" type="password"
+                placeholder="أدخل كلمة المرور (6 أحرف على الأقل)"
+                autocomplete="new-password" required />
+              <button class="eye-btn" type="button" id="togglePass">إظهار</button>
+            </div>
+            <small class="error" id="passError">كلمة المرور يجب أن تكون 6 أحرف على الأقل</small>
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">تأكيد كلمة المرور</label>
+            <div class="input-wrap">
+              <input id="confirmPassword" name="confirm" type="password"
+                placeholder="أعد إدخال كلمة المرور"
+                autocomplete="new-password" required />
+              <button class="eye-btn" type="button" id="toggleConfirm">إظهار</button>
+            </div>
+            <small class="error" id="confirmError">كلمتا المرور غير متطابقتين</small>
+          </div>
+
+          <button class="btn" type="submit" id="submitBtn">إنشاء الحساب</button>
+
+          <div class="divider"><span>أو</span></div>
+
+          <p class="bottom">
+            لديك حساب بالفعل؟ <a class="link" href="../login/index.php">تسجيل الدخول</a>
+          </p>
+          <p class="role-note">الدور (طالب/ادمن) يتم تحديده من قِبَل الأدمن</p>
+
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- RIGHT: INFO PANEL -->
+      <div class="auth-right">
+        <div class="brand">
+          <div class="cap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3L1.5 8.2 12 13.4 22.5 8.2 12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M4.7 10.1V15.2C4.7 15.2 7.5 18 12 18C16.5 18 19.3 15.2 19.3 15.2V10.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M22.5 8.2V14.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2>المنصة الذكية لكلية العلوم</h2>
+        </div>
+        <h3>انضم إلينا!</h3>
+        <p class="desc">أنشئ حسابك الآن وانضم إلى المنصة الذكية المتكاملة لكلية العلوم شعبة الرياضيات وعلوم الحاسب جامعة السويس</p>
+        <ul class="features">
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 7.5H14.5C15.6 7.5 16.5 8.4 16.5 9.5V14.5C16.5 15.6 15.6 16.5 14.5 16.5H4.5C3.4 16.5 2.5 15.6 2.5 14.5V9.5C2.5 8.4 3.4 7.5 4.5 7.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M16.5 10L21.5 7.5V16.5L16.5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>المحاضرات الخاصة بكل مادة</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M7 7H20M7 12H20M7 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 7H4.01M4 12H4.01M4 17H4.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>نظام المهام التفاعلية</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M16 11.5C17.7 11.5 19 10.1 19 8.5C19 6.9 17.7 5.5 16 5.5C14.3 5.5 13 6.9 13 8.5C13 10.1 14.3 11.5 16 11.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 11.5C10.2 11.5 11.5 10.1 11.5 8.5C11.5 6.9 10.2 5.5 8.5 5.5C6.8 5.5 5.5 6.9 5.5 8.5C5.5 10.1 6.8 11.5 8.5 11.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 18.5C4.2 15.9 6.1 14.5 8.5 14.5C10.9 14.5 12.8 15.9 13.5 18.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.8 18.5C13.3 16.5 14.8 15.4 16.8 15.4C18.8 15.4 20.3 16.5 20.8 18.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>السكاشن</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>التاسكات</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3.5H15L19.5 8V20.5H7C5.9 20.5 5 19.6 5 18.5V5.5C5 4.4 5.9 3.5 7 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 3.5V8H19.5M8 12H16M8 15.5H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>امتحانات إلكترونية متكاملة</li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="../assets/js/register.js"></script>
+</body>
+</html>

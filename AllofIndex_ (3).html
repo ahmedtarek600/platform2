@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المنصة الذكية - كلية العلوم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/exam.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+</head>
+<body>
+
+  <!-- ===== LOGIN REQUIRED BANNER ===== -->
+  <div class="login-toast" id="loginToast">
+    يجب تسجيل الدخول أولاً للوصول إلى محتوى المنصة
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="mainNav">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-icon">🎓</span>
+        <span class="brand-text">المنصة الذكية - كلية العلوم</span>
+      </div>
+      <nav class="nav-links">
+        <a class="nav-link active" href="#" data-view="home">الرئيسية</a>
+        <a class="nav-link" href="#" data-view="features">المميزات</a>
+        <a class="nav-link" href="#" data-view="dashboard" id="navDashboard">الأقسام</a>
+        <a class="nav-link" href="#" data-view="contact">اتصل بنا</a>
+      </nav>
+
+      <!-- Guest Actions -->
+      <div class="nav-actions" id="guestActions">
+        <a class="btn btn-outline" href="login/index.php">تسجيل الدخول</a>
+        <a class="btn btn-solid"   href="register/index.php">إنشاء حساب</a>
+        <button class="menu-btn" id="menuBtn">☰</button>
+      </div>
+
+      <!-- User Actions -->
+      <div class="nav-actions" id="userActions">
+        <div class="nav-user-wrap">
+          <div class="nav-user-avatar" id="navUserAvatar" title="الملف الشخصي">
+          م
+          </div>
+          <div class="nav-user-tooltip">
+            <span class="nav-user-name"></span>
+            <span class="nav-user-role"></span>
+          </div>
+        </div>
+        <a class="nav-logout-btn" href="auth/logout.php">
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+            <path d="M9 21H5C4.5 21 4 20.8 3.6 20.4C3.2 20 3 19.5 3 19V5C3 4.5 3.2 4 3.6 3.6C4 3.2 4.5 3 5 3H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 12H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          تسجيل الخروج
+        </a>
+        <button class="menu-btn" id="menuBtn2">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" class="mobile-link" data-view="home">الرئيسية</a>
+      <a href="#" class="mobile-link" data-view="features">المميزات</a>
+      <a href="#" class="mobile-link" data-view="dashboard">الأقسام</a>
+      <a href="#" class="mobile-link" data-view="contact">اتصل بنا</a>
+      <div class="mobile-actions">
+        <a class="btn btn-outline w-100" href="login/index.php">تسجيل الدخول</a>
+        <a class="btn btn-solid w-100"   href="register/index.php">إنشاء حساب</a>
+      </div>
+      <div class="mobile-actions">
+        <a class="btn btn-outline w-100" href="auth/logout.php">تسجيل الخروج</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== VIEW: HOME ===== -->
+  <div class="view active" id="viewHome">
+    <main class="hero">
+      <div class="hero-bg"></div>
+      <section class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="highlight">المنصة الذكية المتكاملة</span><br />
+            لكلية العلوم شعبة الرياضيات وعلوم الحاسب
+          </h1>
+          <p class="hero-subtitle">
+            المنصة الذكية هي منصة متكاملة تجمع بين المحاضرات والمهام التفاعلية
+            والسكاشن والامتحانات الإلكترونية في مكان واحد.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#" id="startLearningBtn">
+              ابدأ التعلم الآن
+              <span class="btn-arrow">←</span>
+            </a>
+          </div>
+          <div class="hero-badges">
+            <span class="badge">محاضرات</span>
+            <span class="badge">سكاشن</span>
+            <span class="badge">مهام</span>
+            <span class="badge">امتحانات</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+ 
+  </div>
+
+  <!-- ===== VIEW: FEATURES ===== -->
+  <div class="view" id="viewFeatures">
+    <div class="page-section">
+      <div class="section-header">
+        <div class="section-emoji">🎯</div>
+        <h2>مميزات المنصة</h2>
+        <p>كل ما تحتاجه للتعلم الإلكتروني في مكان واحد</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>منصة ذكية متكاملة</h3><p>بيئة تعليمية شاملة تجمع كل ما يحتاجه الطالب والمحاضر في مكان واحد ذكي، مصمّم لتحقيق أعلى كفاءة تعليمية ممكنة</p></div>
+        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 7.5H14.5C15.6 7.5 16.5 8.4 16.5 9.5V14.5C16.5 15.6 15.6 16.5 14.5 16.5H4.5C3.4 16.5 2.5 15.6 2.5 14.5V9.5C2.5 8.4 3.4 7.5 4.5 7.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M16.5 10L21.5 7.5V16.5L16.5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><h3>محاضراتك وسكاشنك في مكان واحد</h3><p>وصول فوري لجميع المحاضرات المسجلة والسكاشن في أي وقت ومن أي مكان</p></div>
+        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20 21V19C20 17.9 19.1 17 18 17H6C4.9 17 4 17.9 4 19V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 13C14.2 13 16 11.2 16 9C16 6.8 14.2 5 12 5C9.8 5 8 6.8 8 9C8 11.2 9.8 13 12 13Z" stroke="currentColor" stroke-width="1.8"/></svg></div><h3>تسجيل دخول طلاب وأدمن سلس</h3><p>نظام تسجيل دخول مرن وآمن يدعم الطلاب والمشرفين، مع تحديد الأدوار تلقائياً</p></div>
+        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>المهام التفاعلية</h3><p>استلم وسلّم مهامك إلكترونياً مع تتبع فوري للتقدم، وتلقّ تعليقات الأساتذة وتقييماتهم</p></div>
+        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3.5H15L19.5 8V20.5H7C5.9 20.5 5 19.6 5 18.5V5.5C5 4.4 5.9 3.5 7 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 3.5V8H19.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 12H16M8 15.5H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>امتحانات إلكترونية</h3><p>اخضع للامتحانات إلكترونياً بنظام آمن وموثوق مع نتائج فورية وتحليل شامل للأداء</p></div>
+        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15C21 15.5 20.8 16 20.4 16.4C20 16.8 19.5 17 19 17H7L3 21V5C3 4.5 3.2 4 3.6 3.6C4 3.2 4.5 3 5 3H19C19.5 3 20 3.2 20.4 3.6C20.8 4 21 4.5 21 5V15Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>دعم عند مواجهة أي أخطاء</h3><p>فريق دعم فني متكامل جاهز لمساعدتك في حل أي مشكلة أو خطأ تواجهه أثناء الاستخدام</p></div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- ===== VIEW: CONTACT ===== -->
+  <div class="view" id="viewContact">
+    <div class="page-section">
+      <div class="section-header">
+        <div class="section-emoji">📬</div>
+        <h2>اتصل بنا</h2>
+        <p>هل لديك استفسار أو مشكلة؟ راسلنا وسنرد عليك في أقرب وقت</p>
+      </div>
+      <div class="contact-wrap">
+        <div class="contact-card">
+          <form id="contactForm" novalidate>
+            <div class="c-field"><label for="cName">الاسم</label><input id="cName" type="text" placeholder="أدخل اسمك الكامل" /></div>
+            <div class="c-field"><label for="cCode">الكود الجامعي</label><input id="cCode" type="text" placeholder="أدخل الكود الجامعي" /></div>
+            <div class="c-field"><label for="cEmail">البريد الإلكتروني</label><input id="cEmail" type="email" placeholder="أدخل بريدك الإلكتروني" /></div>
+            <div class="c-field"><label for="cMsg">الشكوى / الرسالة</label><textarea id="cMsg" rows="5" placeholder="اكتب رسالتك أو شكواك هنا..."></textarea></div>
+            <button class="btn btn-primary contact-submit" type="submit">إرسال الرسالة ←</button>
+            <div class="c-toast" id="cToast"></div>
+          </form>
+        </div>
+        <div class="contact-info">
+          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="1.8"/><path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><strong>البريد الإلكتروني</strong><span>support@scienceplatform.edu.eg</span></div></div>
+          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.6 3.9 5.3 5.5 3.7C7.1 2.1 9.3 1.2 11.6 1.2C13.9 1.2 16.1 2.1 17.7 3.7C19.3 5.3 21 7.6 21 10Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13Z" stroke="currentColor" stroke-width="1.8"/></svg></div><div><strong>الموقع</strong><span>جامعة السويس - كلية العلوم</span></div></div>
+          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><strong>وقت الرد</strong><span>خلال 24 ساعة من استلام رسالتك</span></div></div>
+          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15C21 15.5 20.8 16 20.4 16.4C20 16.8 19.5 17 19 17H7L3 21V5C3 4.5 3.2 4 3.6 3.6C4 3.2 4.5 3 5 3H19C19.5 3 20 3.2 20.4 3.6C20.8 4 21 4.5 21 5V15Z" stroke="currentColor" stroke-width="1.8"/></svg></div><div><strong>الدعم الفني</strong><span>فريق متخصص جاهز لمساعدتك دائماً</span></div></div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- ===== VIEW: DASHBOARD ===== -->
+  <!-- Dashboard placeholder for guests -->
+  <div class="view" id="viewDashboard">
+    <div class="dashboard-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <span class="brand-icon">🎓</span>
+          <span>المنصة الذكية</span>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link active" href="#" data-dash="content">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>المحتوى التعليمي</span>
+          </a>
+          <a class="sidebar-link" href="#" data-dash="schedule">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>الجدول الدراسي</span>
+          </a>
+          <a class="sidebar-link" href="#" data-dash="exams">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3.5H15L19.5 8V20.5H7C5.9 20.5 5 19.6 5 18.5V5.5C5 4.4 5.9 3.5 7 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 3.5V8H19.5M8 12H16M8 15.5H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>جدول الامتحانات</span>
+          </a>
+          <a class="sidebar-link" href="#" data-dash="exam_system">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>الامتحانات الإلكترونية</span>
+          </a>
+          <!-- رابط ملفات قيد المراجعة (أدمن فقط) -->
+          <a class="sidebar-link" href="#" data-dash="pending">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>ملفات قيد المراجعة</span>
+          </a>
+          <a class="sidebar-link" href="#" data-dash="profile">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M20 21V19C20 17.9 19.1 17 18 17H6C4.9 17 4 17.9 4 19V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 13C14.2 13 16 11.2 16 9C16 6.8 14.2 5 12 5C9.8 5 8 6.8 8 9C8 11.2 9.8 13 12 13Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>الملف الشخصي</span>
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="user-avatar"></div>
+            <div class="user-info">
+              <span class="user-name"></span>
+              <span class="user-role"></span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="dash-main">
+
+        <!-- المحتوى التعليمي -->
+        <div class="dash-panel active" id="panelContent">
+          <div class="dash-header">
+            <div>
+              <h2>المحتوى التعليمي</h2>
+              <p>
+                &nbsp;|&nbsp;
+                <!-- فلتر الفرقة للأدمن -->
+                <span class="grade-switcher-label">عرض الفرقة:
+                  <div class="custom-dropdown" data-select-id="adminGradeSelect">
+                    <button type="button" class="dropdown-btn">
+                      <span class="dropdown-btn-text">الفرقة الأولى</span>
+                      <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="dropdown-menu">
+                      <div class="dropdown-item active" data-value="1">الفرقة الأولى</div>
+                      <div class="dropdown-item" data-value="2">الفرقة الثانية</div>
+                      <div class="dropdown-item" data-value="3">الفرقة الثالثة</div>
+                      <div class="dropdown-item" data-value="4">الفرقة الرابعة</div>
+                    </div>
+                    <select id="adminGradeSelect" hidden>
+                      <option value="1" selected>الفرقة الأولى</option>
+                      <option value="2">الفرقة الثانية</option>
+                      <option value="3">الفرقة الثالثة</option>
+                      <option value="4">الفرقة الرابعة</option>
+                    </select>
+                  </div>
+                </span>
+              </p>
+            </div>
+            <button class="refresh-btn" id="refreshBtn">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M1 4V10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.51 15C4.26 17.1 5.77 18.9 7.73 20.1C9.7 21.2 12 21.6 14.2 21.1C16.4 20.6 18.4 19.3 19.8 17.4C21.1 15.5 21.7 13.2 21.4 10.9C21.1 8.6 19.9 6.5 18.2 5C16.4 3.5 14.1 2.7 11.8 2.8C9.5 2.8 7.2 3.8 5.6 5.5L1 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              تحديث المحتوى
+            </button>
+          </div>
+
+          <!-- المواد (تُحمَّل عبر AJAX) -->
+          <div class="subjects-bar" id="subjectsBar">
+            <div class="loading-subjects">جاري تحميل المواد...</div>
+          </div>
+
+          <!-- أزرار النوع -->
+          <div class="content-btns" id="contentBtns" style="display:none;">
+            <button class="content-btn active" data-content="lecture">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4.5 7.5H14.5C15.6 7.5 16.5 8.4 16.5 9.5V14.5C16.5 15.6 15.6 16.5 14.5 16.5H4.5C3.4 16.5 2.5 15.6 2.5 14.5V9.5C2.5 8.4 3.4 7.5 4.5 7.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M16.5 10L21.5 7.5V16.5L16.5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              المحاضرات
+            </button>
+            <button class="content-btn" data-content="task">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              التاسكات
+            </button>
+            <button class="content-btn" data-content="assignment">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              الاسايمنتات
+            </button>
+            <button class="content-btn" data-content="section">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M16 11.5C17.7 11.5 19 10.1 19 8.5C19 6.9 17.7 5.5 16 5.5C14.3 5.5 13 6.9 13 8.5C13 10.1 14.3 11.5 16 11.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 11.5C10.2 11.5 11.5 10.1 11.5 8.5C11.5 6.9 10.2 5.5 8.5 5.5C6.8 5.5 5.5 6.9 5.5 8.5C5.5 10.1 6.8 11.5 8.5 11.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 18.5C4.2 15.9 6.1 14.5 8.5 14.5C10.9 14.5 12.8 15.9 13.5 18.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.8 18.5C13.3 16.5 14.8 15.4 16.8 15.4C18.8 15.4 20.3 16.5 20.8 18.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              السكاشن
+            </button>
+          </div>
+
+          <!-- فلتر السكشن (يظهر فقط عند اختيار "السكاشن") -->
+          <div class="section-filter" id="sectionFilter" style="display:none; margin-bottom:18px;">
+            <label style="font-size:13px;color:rgba(255,255,255,0.7);font-weight:700;margin-left:8px;">رقم السكشن:</label>
+            <div class="custom-dropdown" data-select-id="sectionSelect">
+              <button type="button" class="dropdown-btn">
+                <span class="dropdown-btn-text">الكل</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="dropdown-menu">
+                <div class="dropdown-item active" data-value="">الكل</div>
+                <div class="dropdown-item" data-value="1">سكشن 1</div>
+                <div class="dropdown-item" data-value="2">سكشن 2</div>
+                <div class="dropdown-item" data-value="3">سكشن 3</div>
+                <div class="dropdown-item" data-value="4">سكشن 4</div>
+              </div>
+              <select id="sectionSelect" hidden>
+                <option value="" selected>الكل</option>
+                <option value="1">سكشن 1</option>
+                <option value="2">سكشن 2</option>
+                <option value="3">سكشن 3</option>
+                <option value="4">سكشن 4</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- زر الرفع -->
+          <div id="uploadArea" style="margin-bottom:18px; display:none;">
+            <button class="upload-trigger-btn" id="uploadTriggerBtn">
+              <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              رفع ملف
+            </button>
+          </div>
+
+          <!-- قائمة الملفات -->
+          <div id="filesList">
+            <div class="empty-state">
+              <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M22 19C22 19.5 21.8 20 21.4 20.4C21 20.8 20.5 21 20 21H4C3.5 21 3 20.8 2.6 20.4C2.2 20 2 19.5 2 19V5C2 4.5 2.2 4 2.6 3.6C3 3.2 3.5 3 4 3H9L11 6H20C20.5 6 21 6.2 21.4 6.6C21.8 7 22 7.5 22 8V19Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>اختر مادة لعرض محتواها</h3>
+              <p>اختر مادة من القائمة أعلاه ثم اختر نوع المحتوى</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- الجدول الدراسي -->
+        <div class="dash-panel" id="panelSchedule">
+          <div class="dash-header">
+            <div>
+              <h2>الجدول الدراسي</h2>
+              <p>جدولك الدراسي للفصل الحالي &ndash; </p>
+            </div>
+            <!-- زر رفع الجدول (أدمن فقط) -->
+            <button class="upload-trigger-btn" id="scheduleUploadBtn" style="white-space:nowrap;">رفع جدول</button>
+          </div>
+          <div class="schedule-filter">
+            <!-- فلتر الفرقة للأدمن -->
+            <div class="filter-group">
+              <label class="filter-label">الفرقة:</label>
+              <div class="custom-dropdown" data-select-id="schedGradeSelect">
+                <button type="button" class="dropdown-btn">
+                  <span class="dropdown-btn-text">الفرقة الأولى</span>
+                  <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item active" data-value="1">الفرقة الأولى</div>
+                  <div class="dropdown-item" data-value="2">الفرقة الثانية</div>
+                  <div class="dropdown-item" data-value="3">الفرقة الثالثة</div>
+                  <div class="dropdown-item" data-value="4">الفرقة الرابعة</div>
+                </div>
+                <select id="schedGradeSelect" hidden>
+                  <option value="1" selected>الفرقة الأولى</option>
+                  <option value="2">الفرقة الثانية</option>
+                  <option value="3">الفرقة الثالثة</option>
+                  <option value="4">الفرقة الرابعة</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-group">
+              <label class="filter-label">رقم السكشن:</label>
+              <div class="custom-dropdown" data-select-id="schedSectionSelect">
+                <button type="button" class="dropdown-btn">
+                  <span class="dropdown-btn-text">اختر السكشن</span>
+                  <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item active" data-value="">اختر السكشن</div>
+                  <div class="dropdown-item" data-value="1">سكشن 1</div>
+                  <div class="dropdown-item" data-value="2">سكشن 2</div>
+                  <div class="dropdown-item" data-value="3">سكشن 3</div>
+                  <div class="dropdown-item" data-value="4">سكشن 4</div>
+                </div>
+                <select id="schedSectionSelect" hidden>
+                  <option value="" selected>اختر السكشن</option>
+                  <option value="1">سكشن 1</option>
+                  <option value="2">سكشن 2</option>
+                  <option value="3">سكشن 3</option>
+                  <option value="4">سكشن 4</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="scheduleContent">
+            <div class="empty-state"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>اختر رقم السكشن لعرض الجدول</h3><p>الفرقة يتم تحديدها تلقائياً من حسابك</p></div>
+          </div>
+        </div>
+
+        <!-- جدول الامتحانات -->
+        <div class="dash-panel" id="panelExams">
+          <div class="dash-header">
+            <div>
+              <h2>جدول الامتحانات</h2>
+              <p>مواعيد الامتحانات &ndash; </p>
+            </div>
+            <!-- زر رفع جدول الامتحانات (أدمن فقط) -->
+            <button class="upload-trigger-btn" id="examUploadBtn" style="white-space:nowrap;">رفع جدول امتحانات</button>
+          </div>
+          <!-- فلتر الفرقة للأدمن -->
+          <div class="schedule-filter">
+            <div class="filter-group">
+              <label class="filter-label">عرض فرقة:</label>
+              <div class="custom-dropdown" data-select-id="examGradeSelect">
+                <button type="button" class="dropdown-btn">
+                  <span class="dropdown-btn-text">الفرقة الأولى</span>
+                  <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item active" data-value="1">الفرقة الأولى</div>
+                  <div class="dropdown-item" data-value="2">الفرقة الثانية</div>
+                  <div class="dropdown-item" data-value="3">الفرقة الثالثة</div>
+                  <div class="dropdown-item" data-value="4">الفرقة الرابعة</div>
+                </div>
+                <select id="examGradeSelect" hidden>
+                  <option value="1" selected>الفرقة الأولى</option>
+                  <option value="2">الفرقة الثانية</option>
+                  <option value="3">الفرقة الثالثة</option>
+                  <option value="4">الفرقة الرابعة</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="examsContent">
+            <div class="empty-state"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3.5H15L19.5 8V20.5H7C5.9 20.5 5 19.6 5 18.5V5.5C5 4.4 5.9 3.5 7 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 3.5V8H19.5M8 12H16M8 15.5H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>جاري تحميل جدول الامتحانات...</h3><p>يتم تحديده تلقائياً حسب فرقتك</p></div>
+          </div>
+        </div>
+
+        <!-- ===== بانل الامتحانات الإلكترونية ===== -->
+        <div class="dash-panel" id="panelExamSystem">
+          <div class="dash-header">
+            <div>
+              <h2>الامتحانات الإلكترونية</h2>
+              <p>أداء الامتحانات الإلكترونية وعرض نتائجك</p>
+            </div>
+            <!-- زر إنشاء امتحان (أدمن فقط) -->
+            <button class="upload-trigger-btn" id="showCreateExamBtn" style="white-space:nowrap;">+ إنشاء امتحان</button>
+          </div>
+
+          <!-- فلتر الفرقة للأدمن -->
+          <div class="schedule-filter">
+            <div class="filter-group">
+              <label class="filter-label">الفرقة:</label>
+              <div class="custom-dropdown" data-select-id="examSysGradeSelect">
+                <button type="button" class="dropdown-btn">
+                  <span class="dropdown-btn-text">الفرقة الأولى</span>
+                  <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item active" data-value="1">الفرقة الأولى</div>
+                  <div class="dropdown-item" data-value="2">الفرقة الثانية</div>
+                  <div class="dropdown-item" data-value="3">الفرقة الثالثة</div>
+                  <div class="dropdown-item" data-value="4">الفرقة الرابعة</div>
+                </div>
+                <select id="examSysGradeSelect" hidden>
+                  <option value="1" selected>الفرقة الأولى</option>
+                  <option value="2">الفرقة الثانية</option>
+                  <option value="3">الفرقة الثالثة</option>
+                  <option value="4">الفرقة الرابعة</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- نموذج إنشاء الامتحان -->
+          <div id="createExamFormWrap" style="display:none; margin-bottom:24px;">
+            <div class="exam-create-form">
+              <div class="ecf-section-title">📝 بيانات الامتحان الأساسية</div>
+              <div class="ecf-grid">
+                <div class="ecf-field">
+                  <label class="ecf-label">الفرقة *</label>
+                  <select class="ecf-select" id="ecfGrade">
+                    <option value="1">الفرقة الأولى</option>
+                    <option value="2">الفرقة الثانية</option>
+                    <option value="3">الفرقة الثالثة</option>
+                    <option value="4">الفرقة الرابعة</option>
+                  </select>
+                </div>
+                <div class="ecf-field">
+                  <label class="ecf-label">المادة *</label>
+                  <select class="ecf-select" id="ecfSubject"><option value="">اختر المادة...</option></select>
+                </div>
+                <div class="ecf-field full">
+                  <label class="ecf-label">عنوان الامتحان *</label>
+                  <input type="text" class="ecf-input" id="ecfTitle" placeholder="مثال: امتحان الإحصاء - الفصل الأول" />
+                </div>
+                <div class="ecf-field full">
+                  <label class="ecf-label">الوصف (نوع الامتحان)</label>
+                  <textarea class="ecf-textarea" id="ecfDesc" placeholder="مثال: امتحان MCQ يشمل الفصول 1-5 / امتحان مقالي..."></textarea>
+                </div>
+                <div class="ecf-field">
+                  <label class="ecf-label">مدة الامتحان (دقيقة) *</label>
+                  <input type="number" class="ecf-input" id="ecfDuration" min="5" max="300" value="60" />
+                </div>
+                <div class="ecf-field">
+                  <label class="ecf-label">الدرجة الكلية *</label>
+                  <input type="number" class="ecf-input" id="ecfTotalMarks" min="1" value="100" />
+                </div>
+                <div class="ecf-field">
+                  <label class="ecf-label">درجة النجاح *</label>
+                  <input type="number" class="ecf-input" id="ecfPassMarks" min="1" value="50" />
+                </div>
+              </div>
+              <div class="ecf-section-title" style="margin-top:8px;">❓ الأسئلة</div>
+              <div class="ecf-questions-list" id="ecfQuestionsList"></div>
+              <button type="button" class="ecf-add-q-btn" id="ecfAddQuestionBtn">
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                إضافة سؤال
+              </button>
+              <div class="ecf-msg" id="ecfMsg"></div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button type="button" class="ecf-submit-btn" id="ecfSubmitBtn" style="flex:1;">
+                  <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M17 8L12 3L7 8M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  رفع الامتحان
+                </button>
+                <button type="button" class="btn btn-outline" id="ecfCancelBtn" style="padding:14px 20px;">إلغاء</button>
+              </div>
+            </div>
+          </div>
+          <div class="content-btns" style="margin-bottom:20px;">
+            <button class="content-btn active" data-exam-tab="exams_list">الامتحانات المتاحة</button>
+            <button class="content-btn" data-exam-tab="my_results">نتائجي</button>
+          </div>
+
+          <div id="examSystemContent">
+            <div class="loading-subjects">جاري تحميل الامتحانات...</div>
+          </div>
+        </div>
+
+        <!-- ملفات قيد المراجعة (أدمن فقط) -->
+        <div class="dash-panel" id="panelPending">
+          <div class="dash-header">
+            <div>
+              <h2>ملفات قيد المراجعة</h2>
+              <p>الملفات المرفوعة من الطلاب وتنتظر موافقتك</p>
+            </div>
+            <button class="refresh-btn" id="refreshPendingBtn">تحديث</button>
+          </div>
+          <div id="pendingList">
+            <div class="loading-subjects">جاري التحميل...</div>
+          </div>
+        </div>
+
+        <!-- الملف الشخصي -->
+        <div class="dash-panel" id="panelProfile">
+          <div class="dash-header"><div><h2>الملف الشخصي</h2><p>معلوماتك الشخصية والأكاديمية</p></div></div>
+          <div class="profile-wrap">
+            <div class="profile-card">
+              <div class="profile-avatar-wrap">
+                <div class="profile-avatar"></div>
+                <div class="profile-role-badge"></div>
+              </div>
+              <h3 class="profile-name"></h3>
+              <p class="profile-dept">رياضيات وعلوم الحاسب · كلية العلوم</p>
+            </div>
+            <div class="profile-info-card">
+              <h4 class="info-title">البيانات الأكاديمية</h4>
+              <div class="info-list">
+                <div class="info-row"><span class="info-lbl">الكود الجامعي</span><span class="info-val"></span></div>
+                <div class="info-row"><span class="info-lbl">الاسم الكامل</span><span class="info-val"></span></div>
+                <div class="info-row"><span class="info-lbl">الفرقة</span><span class="info-val"></span></div>
+                <div class="info-row"><span class="info-lbl">الدور</span><span class="info-val"></span></div>
+                <div class="info-row"><span class="info-lbl">الشعبة</span><span class="info-val">رياضيات وعلوم الحاسب</span></div>
+                <div class="info-row"><span class="info-lbl">الجامعة</span><span class="info-val">جامعة السويس</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="siteFooterDashboard">
+      <div class="site-footer__title">المنصة الذكية - كلية العلوم</div>
+      <div class="site-footer__team" id="footerTeamDashboard"></div>
+      <div class="site-footer__copy">&copy; 2026 جميع الحقوق محفوظة - المنصة الذكية - كلية العلوم - جامعة السويس</div>
+    </footer>
+
+  </div>
+
+  <!-- Session data for JS -->
+  <script>
+
+    window.APP = {
+      isLoggedIn: true,
+      isAdmin:    false,
+      userGrade:  0,
+      userName:   "",
+      userCode:   "",
+      roleLabel:  ""
+    };
+  </script>
+
+  <!-- ===== UPLOAD MODAL ===== -->
+  <div class="platform-modal" id="uploadModal">
+    <div class="platform-modal-box">
+      <div class="platform-modal-header">
+        <h3 class="platform-modal-title">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          رفع ملف جديد
+        </h3>
+        <button class="platform-modal-close" id="modalCloseBtn">✕</button>
+      </div>
+      <form id="modalUploadForm" class="platform-modal-form">
+        <input type="hidden" id="modalType" value="" />
+        <input type="hidden" id="modalSubject" value="" />
+
+        <!-- حقول الأدمن -->
+        <div id="modalAdminFields" class="modal-field-group">
+          <div class="modal-field">
+            <label class="modal-label">الفرقة</label>
+            <div class="custom-dropdown" data-select-id="modalGrade">
+              <button type="button" class="dropdown-btn">
+                <span class="dropdown-btn-text">الفرقة الأولى</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="dropdown-menu">
+                <div class="dropdown-item active" data-value="1">الفرقة الأولى</div>
+                <div class="dropdown-item" data-value="2">الفرقة الثانية</div>
+                <div class="dropdown-item" data-value="3">الفرقة الثالثة</div>
+                <div class="dropdown-item" data-value="4">الفرقة الرابعة</div>
+              </div>
+              <select id="modalGrade" hidden>
+                <option value="1" selected>الفرقة الأولى</option>
+                <option value="2">الفرقة الثانية</option>
+                <option value="3">الفرقة الثالثة</option>
+                <option value="4">الفرقة الرابعة</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-field" id="modalSectionField" style="display:none;">
+          <label class="modal-label">رقم السكشن</label>
+          <div class="custom-dropdown" data-select-id="modalSectionNumber">
+            <button type="button" class="dropdown-btn">
+              <span class="dropdown-btn-text">سكشن 1</span>
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <div class="dropdown-item active" data-value="1">سكشن 1</div>
+              <div class="dropdown-item" data-value="2">سكشن 2</div>
+              <div class="dropdown-item" data-value="3">سكشن 3</div>
+              <div class="dropdown-item" data-value="4">سكشن 4</div>
+            </div>
+            <select id="modalSectionNumber" hidden>
+              <option value="1" selected>سكشن 1</option>
+              <option value="2">سكشن 2</option>
+              <option value="3">سكشن 3</option>
+              <option value="4">سكشن 4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-field">
+          <label class="modal-label">اختر الملف</label>
+          <label class="modal-file-label" for="modalFileInput">
+            <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span id="modalFileName">اضغط لاختيار ملف من جهازك</span>
+          </label>
+          <input type="file" id="modalFileInput" name="file" hidden required
+                 onchange="document.getElementById('modalFileName').textContent = this.files[0]?.name || 'اضغط لاختيار ملف'" />
+        </div>
+
+        <div class="modal-msg" id="modalUploadMsg"></div>
+
+        <div class="modal-actions">
+          <button type="submit" class="modal-submit-btn">
+            <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            رفع الملف
+          </button>
+          <button type="button" class="modal-cancel-btn" id="modalCancelBtn">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== PREVIEW MODAL ===== -->
+  <div class="platform-modal" id="previewModal">
+    <div class="platform-modal-box platform-modal-wide">
+      <div class="platform-modal-header">
+        <h3 class="platform-modal-title" id="previewTitle">معاينة الملف</h3>
+        <button class="platform-modal-close" id="previewCloseBtn">✕</button>
+      </div>
+      <div class="preview-container" id="previewContainer"></div>
+    </div>
+  </div>
+
+  <!-- ===== DELETE CONFIRM MODAL ===== -->
+  <div class="platform-modal" id="deleteConfirmModal">
+    <div class="platform-modal-box delete-confirm-box">
+      <div class="delete-confirm-icon">
+        <svg viewBox="0 0 24 24" fill="none" width="36" height="36">
+          <path d="M3 6H21M19 6L18 20C18 21.1 17.1 22 16 22H8C6.9 22 6 21.1 6 20L5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 6V4C8 2.9 8.9 2 10 2H14C15.1 2 16 2.9 16 4V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="delete-confirm-title">حذف الملف</h3>
+      <p class="delete-confirm-msg">هل أنت متأكد من حذف هذا الملف نهائياً؟<br>لا يمكن التراجع عن هذا الإجراء.</p>
+      <div class="delete-confirm-actions">
+        <button class="delete-confirm-btn" id="deleteConfirmYes">
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+            <path d="M3 6H21M19 6L18 20C18 21.1 17.1 22 16 22H8C6.9 22 6 21.1 6 20L5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 6V4C8 2.9 8.9 2 10 2H14C15.1 2 16 2.9 16 4V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          حذف
+        </button>
+        <button class="delete-cancel-btn" id="deleteConfirmNo">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>

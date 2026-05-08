@@ -1,0 +1,106 @@
+/* ===== FOOTER ===== */
+
+/* ─── Dashboard: سكرول واحد على يمين الشاشة ─── */
+#viewDashboard.active {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100vh - var(--nav-h)) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  /* نقل شريط السكرول لأقصى يمين الشاشة */
+  direction: ltr;
+}
+
+/* نرجع الـ direction للعربي جوا الـ dashboard */
+#viewDashboard .dashboard-layout,
+#viewDashboard .site-footer {
+  direction: rtl;
+}
+
+#viewDashboard .dashboard-layout {
+  flex: 1 0 auto;
+  display: flex;
+  width: 100%;
+}
+
+/* الـ sidebar يفضل بـ overflow خاص بيه بس بدون سكرول ظاهر */
+#viewDashboard .sidebar {
+  overflow-y: auto !important;
+  scrollbar-width: none;        /* Firefox */
+}
+#viewDashboard .sidebar::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari */
+}
+
+/* dash-main بدون سكرول خاص */
+#viewDashboard .dash-main {
+  overflow: visible !important;
+  flex: 1 1 0;
+}
+
+#viewDashboard > .site-footer {
+  flex-shrink: 0;
+}
+
+/* ─── Footer Styles ─── */
+.site-footer {
+  background: linear-gradient(to top, #081424, #0c1f3f);
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.site-footer__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.site-footer__team {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.site-footer__member {
+  background-color: #0f2a4d;
+  border: 1px solid #1f4d8f;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.site-footer__member-icon {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-footer__copy {
+  font-size: 12px;
+  color: #aaa;
+}
+/* ================== */
+
+/* ─── Fix: منع ظهور الـ views التانية تحت الـ active view ─── */
+/* الـ views بتاخد display:none من style.css بس لازم نضمن إن body مش بيكشفها */
+html, body {
+  height: auto !important;
+  min-height: 100%;
+}
+
+body {
+  overflow-y: auto !important;
+}
+
+/* كل view مش active يبقى hidden تماماً */
+.view:not(.active) {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
